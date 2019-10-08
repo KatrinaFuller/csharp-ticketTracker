@@ -59,7 +59,12 @@ namespace csharp_ticketTracker.Controllers
 
     private void ViewTicket()
     {
-      Console.WriteLine("Please select a ticket to view");
+      Console.WriteLine("Please select a ticket to view:");
+      if (int.TryParse(Console.ReadLine(), out int index))
+      {
+        _ticketService.View(index);
+      }
+
     }
 
     private void NewTicket()
