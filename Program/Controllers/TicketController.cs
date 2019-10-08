@@ -62,7 +62,10 @@ namespace csharp_ticketTracker.Controllers
       Console.WriteLine("Please select a ticket to view:");
       if (int.TryParse(Console.ReadLine(), out int index))
       {
-        _ticketService.View(index);
+        Ticket ticket = _ticketService.View(index - 1);
+        Console.Clear();
+        Console.WriteLine($"Title: {ticket.Title} \nDescription: {ticket.Description}");
+        Console.ReadLine();
       }
 
     }

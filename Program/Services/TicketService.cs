@@ -14,9 +14,9 @@ namespace csharp_ticketTracker.Services
       Tickets.Add(new Ticket(title, description));
       //   Messages.Add("Ticket was added!");
     }
-    internal void View(int index)
+    internal Ticket View(int index)
     {
-      throw new NotImplementedException();
+      return Tickets[index];
     }
     public TicketService()
     {
