@@ -6,5 +6,10 @@ namespace csharp_ticketTracker.Services
   {
     public List<string> Messages { get; set; }
 
+    public TicketService()
+    {
+      Messages = new List<string>();
+    }
+
   }
 }
