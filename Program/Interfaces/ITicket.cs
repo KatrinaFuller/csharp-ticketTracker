@@ -5,6 +5,6 @@ namespace csharp_ticketTracker.Interfaces
     string Title { get; set; }
     string Description { get; set; }
 
-    // string GetTemplate();
+    string GetTemplate();
   }
 }

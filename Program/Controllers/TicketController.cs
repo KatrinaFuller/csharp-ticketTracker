@@ -1,4 +1,5 @@
 using System;
+using csharp_ticketTracker.Models;
 using csharp_ticketTracker.Services;
 
 namespace csharp_ticketTracker.Controllers
@@ -20,11 +21,17 @@ namespace csharp_ticketTracker.Controllers
     {
       Console.Clear();
       Console.WriteLine("--- Ticket Tracker ---");
+      Console.WriteLine("Number \t Title");
+      Console.WriteLine("-----------------");
       foreach (string message in _ticketService.Messages)
       {
         Console.WriteLine(message);
       }
       _ticketService.Messages.Clear();
+      foreach (Ticket ticket in _ticketService.Tickets)
+      {
+        Console.WriteLine($"{ticket.Title}");
+      }
     }
 
     private void GetUserInput()
@@ -38,14 +45,28 @@ namespace csharp_ticketTracker.Controllers
           Environment.Exit(0);
           break;
         case "view":
-          _ticketService.Messages.Add("Please select one to view");
+          ViewTicket();
           break;
         case "new":
-          _ticketService.Messages.Add("Please make a new one");
+          NewTicket();
           break;
 
       }
 
+    }
+
+    private void ViewTicket()
+    {
+      Console.WriteLine("Please select a ticket to view");
+    }
+
+    private void NewTicket()
+    {
+      Console.WriteLine("Title: ");
+      string title = Console.ReadLine();
+      Console.WriteLine("Description: ");
+      string description = Console.ReadLine();
+      _ticketService.CreateTicket(title, description);
     }
 
   }
