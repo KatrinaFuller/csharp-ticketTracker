@@ -22,21 +22,23 @@ namespace csharp_ticketTracker.Controllers
       Console.Clear();
       Console.WriteLine("--- Ticket Tracker ---");
       Console.WriteLine("Number \t Title");
-      Console.WriteLine("-----------------");
+      Console.WriteLine("----------------");
       foreach (string message in _ticketService.Messages)
       {
         Console.WriteLine(message);
       }
       _ticketService.Messages.Clear();
+      int index = 0;
       foreach (Ticket ticket in _ticketService.Tickets)
       {
-        Console.WriteLine($"{ticket.Title}");
+        index++;
+        Console.WriteLine($"{index} \t {ticket.Title}");
       }
     }
 
     private void GetUserInput()
     {
-      Console.WriteLine("Please select an option: (view, new, quit)");
+      Console.WriteLine("Please select an option: (view / new / quit)");
       string input = Console.ReadLine().ToLower();
       switch (input)
       {
